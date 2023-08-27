@@ -1,0 +1,30 @@
+{
+  "statusBarOrder": [],
+  "ribbonBarOrder": [],
+  "fileExplorerOrder": {
+    "/": [
+      "Assets",
+      "Hyperledger Fabric",
+      "Docker.md"
+    ],
+    "Hyperledger Fabric": [
+      "Hyperledger Fabric/Hyperledger Fabric.md",
+      "Hyperledger Fabric/Ledger Features.md",
+      "Hyperledger Fabric/Permissioned vs Permissionless Blockchains.md",
+      "Hyperledger Fabric/Fabric Networks.md",
+      "Hyperledger Fabric/Identity.md",
+      "Hyperledger Fabric/Certificate Authorities.md",
+      "Hyperledger Fabric/Policies.md",
+      "Hyperledger Fabric/Peers.md",
+      "Hyperledger Fabric/Applications and Peers.md",
+      "Hyperledger Fabric/Ordering Services.md",
+      "Hyperledger Fabric/Raft.md",
+      "Hyperledger Fabric/Smart contracts.md",
+      "Hyperledger Fabric/Fabric chaincode lifecycle.md"
+    ]
+  },
+  "actionBarOrder": {},
+  "autoHide": false,
+  "autoHideDelay": 2000,
+  "dragDelay": 200
+}
