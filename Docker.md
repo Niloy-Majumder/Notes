@@ -1,4 +1,4 @@
-Docker is a platform that enables developers to package and deploy applications along with their dependencies in isolated and portable containers, enhancing consistency across different environments. These containers offer efficient resource utilization and simplified deployment processes.
+Docker is a platform that enables developers to package and deploy applications along with their dependencies in isolated and portable containers, enhancing consistency across different environments. These containers offer efficient resource utilisation and simplified deployment processes.
 
 ---
 

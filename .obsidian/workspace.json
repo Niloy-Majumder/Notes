@@ -8,24 +8,24 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ab78f59abdc4e360",
+            "id": "3dc0f9fb1b88ded8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Hyperledger Fabric/Smart contracts.md",
+                "file": "Hyperledger Fabric/Practicals/Running a Fabric Application.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "d29686791bf2dc65",
+            "id": "69b3d4c3e6fb2b63",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Hyperledger Fabric/Private Data.md",
+                "file": "Hyperledger Fabric/Practicals/Running External Chaincode Builders.md",
                 "mode": "source",
                 "source": false
               }
@@ -82,7 +82,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 393.5
   },
   "right": {
     "id": "48fecfc8c467a982",
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Hyperledger Fabric/Private Data.md",
+                "file": "Hyperledger Fabric/Practicals/Running External Chaincode Builders.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Hyperledger Fabric/Private Data.md",
+                "file": "Hyperledger Fabric/Practicals/Running External Chaincode Builders.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Hyperledger Fabric/Private Data.md"
+                "file": "Hyperledger Fabric/Practicals/Running External Chaincode Builders.md"
               }
             }
           }
@@ -161,23 +161,32 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "14aa393e04bdcd6f",
+  "active": "69b3d4c3e6fb2b63",
   "lastOpenFiles": [
-    "Assets/Pasted image 20230827162013.png",
-    "Hyperledger Fabric/Smart contracts.md",
-    "Hyperledger Fabric/Private Data.md",
+    "Hyperledger Fabric/Practicals/Creating a channel.md",
+    "Hyperledger Fabric/Practicals/Start the network.md",
+    "Hyperledger Fabric/Practicals/Running External Chaincode Builders.md",
+    "Hyperledger Fabric/Practicals/Running a Fabric Application.md",
+    "Hyperledger Fabric/Practicals/Deploying a smart contract to a channel.md",
+    "Untitled",
+    "Docker.md",
+    "Hyperledger Fabric/Practicals/Upgrading a smart contract.md",
+    "Hyperledger Fabric/Practicals/Using the Fabric test network.md",
+    "Hyperledger Fabric/Fabric Networks.md",
+    "Hyperledger Fabric/Practicals",
     "Hyperledger Fabric/Fabric chaincode lifecycle.md",
+    "Hyperledger Fabric/Peers.md",
+    "Hyperledger Fabric/Smart contracts.md",
+    "Hyperledger Fabric/Certificate Authorities.md",
+    "Assets/Pasted image 20230827162013.png",
+    "Hyperledger Fabric/Private Data.md",
     "Hyperledger Fabric/Raft.md",
     "Hyperledger Fabric/Ordering Services.md",
     "Hyperledger Fabric/Ledger Features.md",
     "Hyperledger Fabric/Applications and Peers.md",
-    "Hyperledger Fabric/Peers.md",
-    "Docker.md",
     "Assets/Pasted image 20230820213756.png",
     "Hyperledger Fabric/Policies.md",
-    "Hyperledger Fabric/Certificate Authorities.md",
     "Hyperledger Fabric/Identity.md",
-    "Hyperledger Fabric/Fabric Networks.md",
     "Hyperledger Fabric/Permissioned vs Permissionless Blockchains.md",
     "Hyperledger Fabric/Hyperledger Fabric.md",
     "Assets/Pasted image 20230820212419.png",
@@ -188,7 +197,6 @@
     "Assets/Pasted image 20230820185825.png",
     "Assets/Certificate Authority.png",
     "Assets/Parent Image.png",
-    "Assets/sample network diagram.png",
     "().md",
     "Smart.md",
     "Chaincode.md",

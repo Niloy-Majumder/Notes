@@ -5,7 +5,7 @@ A blockchain network is a technical infrastructure that provides ledger and smar
 
 ![[sample network diagram.png]]
 
-Three organizations, R1, R2, and R0 have jointly decided that they will establish a network. This network has a configuration, CC1, which all of the organizations have agreed to and which lists the definition of the organizations as well as the policies which define the roles each organization will play on the channel.
+Three organisations, R1, R2, and R0 have jointly decided that they will establish a network. This network has a configuration, CC1, which all of the organisations have agreed to and which lists the definition of the organisations as well as the policies which define the roles each organisation will play on the channel.
 
 ## Creating the network
 

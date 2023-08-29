@@ -20,7 +20,15 @@
       "Hyperledger Fabric/Ordering Services.md",
       "Hyperledger Fabric/Raft.md",
       "Hyperledger Fabric/Smart contracts.md",
-      "Hyperledger Fabric/Fabric chaincode lifecycle.md"
+      "Hyperledger Fabric/Fabric chaincode lifecycle.md",
+      "Hyperledger Fabric/Private Data.md",
+      "Hyperledger Fabric/Practicals"
+    ],
+    "Hyperledger Fabric/Practicals": [
+      "Hyperledger Fabric/Practicals/Start the network.md",
+      "Hyperledger Fabric/Practicals/Creating a channel.md",
+      "Hyperledger Fabric/Practicals/Using the Fabric test network.md",
+      "Hyperledger Fabric/Practicals/Deploying a smart contract to a channel.md"
     ]
   },
   "actionBarOrder": {},

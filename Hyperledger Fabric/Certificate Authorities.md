@@ -1,4 +1,4 @@
-Certificate Authorities dispenses X.509 certificates that can be used to identify components as belonging to an organization. Certificates issued by CAs can also be used to sign transactions to indicate that an organization endorses the transaction result.
+Certificate Authorities dispenses X.509 certificates that can be used to identify components as belonging to an organisation. Certificates issued by CAs can also be used to sign transactions to indicate that an organization endorses the transaction result.
 
 Firstly, different components of the blockchain network use certificates to identify themselves to each other as being from a particular organization. That’s why there is usually more than one CA supporting a blockchain network – different organizations often use different CAs.
 
