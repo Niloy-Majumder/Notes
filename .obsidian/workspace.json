@@ -31,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Hyperledger Fabric/Practicals/Running External Chaincode Builders.md",
+                "file": "Hyperledger Fabric/Private Data.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Hyperledger Fabric/Practicals/Running External Chaincode Builders.md",
+                "file": "Hyperledger Fabric/Private Data.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Hyperledger Fabric/Practicals/Running External Chaincode Builders.md"
+                "file": "Hyperledger Fabric/Private Data.md"
               }
             }
           }
@@ -161,28 +160,14 @@
       "obsidian42-brat:BRAT": false
     }
   },
-  "active": "69b3d4c3e6fb2b63",
+  "active": "14aa393e04bdcd6f",
   "lastOpenFiles": [
-    "Hyperledger Fabric/Practicals/Creating a channel.md",
-    "Hyperledger Fabric/Practicals/Start the network.md",
-    "Hyperledger Fabric/Practicals/Running External Chaincode Builders.md",
-    "Hyperledger Fabric/Practicals/Running a Fabric Application.md",
-    "Hyperledger Fabric/Practicals/Deploying a smart contract to a channel.md",
-    "Untitled",
-    "Docker.md",
-    "Hyperledger Fabric/Practicals/Upgrading a smart contract.md",
-    "Hyperledger Fabric/Practicals/Using the Fabric test network.md",
-    "Hyperledger Fabric/Fabric Networks.md",
-    "Hyperledger Fabric/Practicals",
-    "Hyperledger Fabric/Fabric chaincode lifecycle.md",
-    "Hyperledger Fabric/Peers.md",
-    "Hyperledger Fabric/Smart contracts.md",
-    "Hyperledger Fabric/Certificate Authorities.md",
     "Assets/Pasted image 20230827162013.png",
+    "Hyperledger Fabric/Smart contracts.md",
     "Hyperledger Fabric/Private Data.md",
+    "Hyperledger Fabric/Fabric chaincode lifecycle.md",
     "Hyperledger Fabric/Raft.md",
     "Hyperledger Fabric/Ordering Services.md",
-    "Hyperledger Fabric/Ledger Features.md",
     "Hyperledger Fabric/Applications and Peers.md",
     "Assets/Pasted image 20230820213756.png",
     "Hyperledger Fabric/Policies.md",
