@@ -150,3 +150,4 @@ docker start container_name_or_id
 These commands allow you to manage the lifecycle of Docker containers efficiently, starting them when needed and stopping them when they are no longer required.
 
 ---
+Refer [[Docker-Compose]] for automating the process
