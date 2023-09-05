@@ -19,7 +19,7 @@ services:
       volumes:
         - ./node-app:/app
       environment:
-         API_KEY: myapikeyvlaueesdfsdfsdf
+         API_KEY: myapikey
 ```
 
 The provided Docker Compose file describes a service called "api" using the `services` section. This service is meant to build and run a Docker container for a Node.js-based API application. 
@@ -64,7 +64,7 @@ services:
 
 ```yaml
     environment:
-      API_KEY: myapikeyvlaueesdfsdfsdf
+      API_KEY: myapikey
 ```
 
 - `environment`: This section defines environment variables for the "api" service. It sets an environment variable named "API_KEY" with the value "myapikeyvlaueesdfsdfsdf." Environment variables can be used to configure and parameterize your application inside the container.
