@@ -60,16 +60,21 @@ services:
       - ./node-app:/app
 ```
 
-- `volumes`: <span style="background:#40a9ff">This sets up a bind mount that maps the "./node-app" directory on the host to the "/app" directory inside the container. This allows changes made to the code on the host to be reflected inside the container in real-time. It's a common approach for development environments to enable live code reloading.</span>
+- `volumes`: <span style="background:rgba(255, 183, 139, 0.55)">This sets up a bind mount that maps the "./node-app" directory on the host to the "/app" directory inside the container. This allows changes made to the code on the host to be reflected inside the container in real-time. It's a common approach for development environments to enable live code reloading.</span>
 
 ```yaml
     environment:
       API_KEY: myapikey
 ```
 
-- `environment`: This section defines environment variables for the "api" service. It sets an environment variable named "API_KEY" with the value "myapikeyvlaueesdfsdfsdf." Environment variables can be used to configure and parameterize your application inside the container.
+- `environment`: This section defines environment variables for the "api" service. It sets an environment variable named "API_KEY" with the value "myapikey". Environment variables can be used to configure and parameterize your application inside the container.
+
+
+>  When a `build` subsection is present for a service, Compose ignores the `image` attribute for the corresponding service, as Compose can build an image from source. But if build specification is not given, then it will try to pull the `image` from the internet.
 
 ---
+
+## Docker-Compose Commands
 
 1. **docker-compose up**:
    - Start the containers defined in the `docker-compose.yml` file.
