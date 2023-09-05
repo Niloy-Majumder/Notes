@@ -74,7 +74,7 @@ services:
 
 ---
 
-## Docker-Compose Commands
+## Docker-Compose Basic Commands
 
 1. **docker-compose up**:
    - Start the containers defined in the `docker-compose.yml` file.
