@@ -6,7 +6,7 @@ Here's how the Raft algorithm works:
 
 2. **Log Replication**: Once a leader is elected, it serves as the central coordinator for the cluster's decisions. Clients send commands to the leader, which appends them to its log and broadcasts the log entries to the other nodes. Nodes then add these entries to their logs and acknowledge their receipt.
 
-3. **Consistency**: To ensure consistency, a log entry is considered committed when the leader has received acknowledgments from a majority of nodes. Once committed, the leader notifies the other nodes, and they apply the command to their state machines in the same order. This guarantees that all nodes reach the same state through the same sequence of commands.
+3. **Consistency**: To ensure consistency, a log entry is considered committed when the leader has received acknowledgements from a majority of nodes. Once committed, the leader notifies the other nodes, and they apply the command to their state machines in the same order. This guarantees that all nodes reach the same state through the same sequence of commands.
 
 4. **Leader Failure**: In the event of leader failure, nodes detect this absence through heartbeat timeouts. When the leader is no longer reachable, nodes initiate a new leader election process to select a new leader. The candidate with the most up-to-date log entries and majority votes becomes the new leader, allowing the cluster to continue functioning.
 

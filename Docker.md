@@ -149,5 +149,10 @@ docker start container_name_or_id
 
 These commands allow you to manage the lifecycle of Docker containers efficiently, starting them when needed and stopping them when they are no longer required.
 
+### Remove Components
+
+```
+docker rm [image/container] [image_id/container_id]
+```
 ---
 Refer [[Docker-Compose]] for automating the process
