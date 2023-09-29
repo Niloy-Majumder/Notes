@@ -50,8 +50,8 @@ The `cgroupfs` driver is **not** recommended when [systemd](https://www.fre
 On Ubuntu:
 
 ```bash
-apt update
-apt install containerd
+sudo apt update
+sudo apt install containerd -y
 ```
 
 Containerd uses a configuration file located in `/etc/containerd/config.toml` for specifying daemon level options.The default configuration can be generated via 
@@ -61,7 +61,7 @@ Containerd uses a configuration file located in `/etc/containerd/config.toml` 
 
 To use the `systemd` cgroup driver in `/etc/containerd/config.toml` with `runc`, set
 
-```
+```toml
 [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc]
   ...
   [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
@@ -100,7 +100,7 @@ echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://a
 
 ```shell
 sudo apt-get update
-sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-get install -y kubelet=1.27.3-00 kubectl=1.27.3-00 kubeadm=1.27.3-00
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 
