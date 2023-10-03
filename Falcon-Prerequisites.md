@@ -180,6 +180,23 @@ kind: ConfigMap
 
 ```
 
+Add key and path to deployment yaml:
+
+```yaml
+spec:
+volumes:
+- name: config-volume
+configMap:
+name: coredns
+items:
+	- key: Corefile
+	  path: Corefile
+	- key: example.db
+	  path: example.db
+	- key: my-hlf-domain.db
+	  path: my-hlf-domain.db
+```
+
 > This will register my-hlf-domain.com dns zone with coredns. 
 > Be sure to restart the deployment
 
@@ -236,3 +253,56 @@ Or
 curl http://anyname.my-hlf-domain.com:30001
 ```
 
+
+### Storage Class
+
+Refer: https://github.com/kubernetes-csi/csi-driver-nfs/tree/master/deploy/example Or Follow below steps
+
+We will create NFS Storage class since we do not have access to cloud storage.
+
+Install NFS CSI Driver :
+
+```bash
+curl -skSL https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/v4.4.0/deploy/install-driver.sh | bash -s v4.4.0 --
+```
+
+Set up a NFS Server on a Kubernetes cluster:
+
+```bash
+kubectl create -f https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/deploy/example/nfs-provisioner/nfs-server.yaml
+```
+
+To check if the NFS server is working, we can statically create a PersistentVolume and a PersistentVolumeClaim, and mount it onto a sample pod:
+
+```shell
+kubectl create -f https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/deploy/example/nfs-provisioner/nginx-pod.yaml
+```
+
+
+Create a storage class(Dynamic Provisioning):
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs-csi
+provisioner: nfs.csi.k8s.io
+parameters:
+  server: nfs-server.default.svc.cluster.local
+  share: /
+  # csi.storage.k8s.io/provisioner-secret is only needed for providing mountOptions in DeleteVolume
+  # csi.storage.k8s.io/provisioner-secret-name: "mount-options"
+  # csi.storage.k8s.io/provisioner-secret-namespace: "default"
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+mountOptions:
+  - nfsvers=4.1
+```
+
+Create PVC to test:
+
+```shell
+kubectl create -f https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/deploy/example/pvc-nfs-csi-dynamic.yaml
+```
+
+(Feel Free to change name to standard-rwo as falcon uses this name)
