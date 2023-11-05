@@ -8,3 +8,4 @@ A collection is the combination of two elements:
 
 
 ![[Pasted image 20230827162013.png]]
+
