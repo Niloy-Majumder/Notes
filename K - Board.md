@@ -6,16 +6,19 @@ kanban-plugin: basic
 
 ## To-do
 
-- [ ] DNS Server Linux
 - [ ] Jenkins
 
 
 ## Ongoing
 
+- [ ] [[DNS Server Configuration]]
 
 
-## Finished
+## Completed
 
+**Complete**
+- [ ] [[Firewall]]
+- [ ] [[Forward Proxy and Reverse Proxy]]
 
 
 

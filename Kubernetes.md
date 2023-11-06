@@ -57,3 +57,14 @@ Get pod/deployment/service
 kubectl get [component]
 ```
 
+Edit ConfigMap for kube-proxy:
+
+```
+kubectl edit cm/kube-proxy -n kube-system
+```
+
+Rollout the changes:
+
+```
+kubectl rollout status ds kube-proxy -n kube-system
+```

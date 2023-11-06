@@ -13,7 +13,11 @@ chmod 700 get_helm.sh
 #### Download the Nginx Ingress Yaml File:
 
 ```bash
-curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.0/deploy/static/provider/baremetal/deploy.yaml > nginx-ingress
+curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.0/deploy/static/provider/baremetal/deploy.yaml > nginx-ingress.yaml
+```
+Or
+```bash
+curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.0/deploy/static/provider/cloud/deploy.yaml > nginx-ingress
 ```
 
 To have specific Nodeports append nodePort to the NodePort service Section:
@@ -66,7 +70,31 @@ spec:
           - --enable-ssl-passthrough
 ```
 
+#### To expose Nginx-Ingress over custom external Ip 
 
+Add externalIp to service yaml file:
+
+```yaml
+spec:
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - appProtocol: http
+    name: http
+    port: 80
+    protocol: TCP
+    targetPort: http
+    nodePort: 30001
+  - appProtocol: https
+    name: https
+    port: 443
+    protocol: TCP
+    targetPort: https
+    nodePort: 30000
+  externalIPs:
+    - '10.166.239.63' # Use single quotes only
+```
 ### To add Custom DNS
 
 Edit CoreDNS Config Map:
@@ -115,7 +143,7 @@ kubectl exec -n kube-system coredns-980047985-g2748 -- kill -SIGUSR1 1
 
 Check if it is working. Example:
 ```bash
-$ kubectl run -it --rm --restart=Never --image=infoblox/dnstools:latest dnstools If you dont see a command prompt, try pressing enter. 
+$ kubectl run -it {coredns} --rm --restart=Never --image=infoblox/dnstools:latest dnstools If you dont see a command prompt, try pressing enter. 
 / # host foo foo.default.svc.cluster.local has address 10.0.0.72 
 / # host foo.example.com foo.example.com has address 10.0.0.72 
 / # host bar.example.com Host bar.example.com not found: 3(NXDOMAIN) 
@@ -226,7 +254,7 @@ Edit `/etc/systemd/resolved.conf` file:
 
 ```bash
 [Resolve]
-DNS=10.0.0.10   # Replace with the actual CoreDNS service IP
+DNS=10.96.0.10   # Replace with the actual CoreDNS service IP
 ```
 
 After making changes, restart the systemd-resolved service:
@@ -272,6 +300,8 @@ Set up a NFS Server on a Kubernetes cluster:
 kubectl create -f https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/deploy/example/nfs-provisioner/nfs-server.yaml
 ```
 
+> Save the nfs-server.yaml file to your local and set the nodeSelector to `"kubernetes.io/hostname": master` to use master node to save the pvcs
+
 To check if the NFS server is working, we can statically create a PersistentVolume and a PersistentVolumeClaim, and mount it onto a sample pod:
 
 ```shell
@@ -285,7 +315,7 @@ Create a storage class(Dynamic Provisioning):
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: nfs-csi
+  name: standard
 provisioner: nfs.csi.k8s.io
 parameters:
   server: nfs-server.default.svc.cluster.local
@@ -299,10 +329,15 @@ mountOptions:
   - nfsvers=4.1
 ```
 
+
+```bash
+kubectl apply -f storage.yaml
+```
+
 Create PVC to test:
 
 ```shell
 kubectl create -f https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/deploy/example/pvc-nfs-csi-dynamic.yaml
 ```
 
-(Feel Free to change name to standard-rwo as falcon uses this name)
+(Feel Free to change name to anything falcon uses )

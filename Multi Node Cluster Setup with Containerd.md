@@ -1,4 +1,4 @@
-
+	
 ## On All Nodes:
 
 ### Execute the following commands on **all the nodes** for IPtables to see bridged traffic.
@@ -92,9 +92,9 @@ curl -fsSL https://dl.k8s.io/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/ap
 
 3. Add the Kubernetes `apt` repository:
 
-    ```shell
+```shell
 echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-    ```
+```
 
 4. Update `apt` package index, install kubelet, kubeadm and kubectl, and pin their version:
 
@@ -141,7 +141,7 @@ Verify the kubeconfig by executing the following kubectl command tolist all the 
 kubectl get po -n kube-system
 ```
 
-*Wait for some time as coredns image creation takes time*
+*Wait for some time as coredns image creation takes time Or Install Network Plugin* 
 
 You verify all the cluster component health statuses using the following command.
 
@@ -165,6 +165,12 @@ kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 
 ```
 kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
+```
+
+Or 
+
+```
+kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
 ```
 
 ### Join Worker Nodes To Kubernetes Master Node
