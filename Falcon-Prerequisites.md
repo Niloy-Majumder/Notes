@@ -15,7 +15,9 @@ chmod 700 get_helm.sh
 ```bash
 curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.0/deploy/static/provider/baremetal/deploy.yaml > nginx-ingress.yaml
 ```
-Or
+
+<center>Or</center>
+
 ```bash
 curl https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.9.0/deploy/static/provider/cloud/deploy.yaml > nginx-ingress
 ```
@@ -143,7 +145,9 @@ kubectl exec -n kube-system coredns-980047985-g2748 -- kill -SIGUSR1 1
 
 Check if it is working. Example:
 ```bash
-$ kubectl run -it {coredns} --rm --restart=Never --image=infoblox/dnstools:latest dnstools If you dont see a command prompt, try pressing enter. 
+$ kubectl run -it --rm --restart=Never --image=infoblox/dnstools:latest 
+dnstools 
+If you dont see a command prompt, try pressing enter. 
 / # host foo foo.default.svc.cluster.local has address 10.0.0.72 
 / # host foo.example.com foo.example.com has address 10.0.0.72 
 / # host bar.example.com Host bar.example.com not found: 3(NXDOMAIN) 
@@ -256,7 +260,7 @@ Edit `/etc/systemd/resolved.conf` file:
 [Resolve]
 DNS=10.96.0.10   # Replace with the actual CoreDNS service IP
 ```
-
+	
 After making changes, restart the systemd-resolved service:
 
 ```bash

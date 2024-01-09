@@ -11,7 +11,7 @@ kubeadm init
 To reset made by kubeadm init and kubeadm join:
 
 ```
-kubeadm reset
+sudo kubeadm reset && sudo rm -r /etc/cni/net.d/ && rm -r \$HOME/.kube/
 ```
 
 
