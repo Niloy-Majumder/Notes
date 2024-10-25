@@ -113,3 +113,87 @@ server {
 
 > **NOTE:** A default server is a property of the listen port, and different default servers may be defined for different ports / listen address
 
+### Reverse Proxy
+
+A **reverse proxy** involves forwarding client requests from the Nginx server to one or more backend servers.
+
+#### Basic Reverse Proxy Configuration
+
+```nginx
+server {
+    listen 80;
+    server_name example.com;  # Your domain or IP address
+
+    location / {
+	    # add_header Cache-Control no-store # Tell the browser to not cache req
+        proxy_pass http://10.244.0.242:3000;  # Forward requests to the backend server (e.g., Node.js on port 3000)
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+```
+
+### Load Balancing
+
+To Use Load Balancing we use `upstream` block to configure list of servers to redirect to
+
+```nginx
+http {
+    upstream backend {
+        server 10.244.0.242:3000;  # First backend server
+        server 10.244.0.242:3001;  # Second backend server
+    }
+
+    server {
+        listen 80;
+        server_name example.com;
+
+        location / {
+            proxy_pass http://backend;  # Use the upstream group for load balancing
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+    }
+}
+
+```
+
+### SSL Certificate
+
+To set up an HTTPS reverse proxy, you need to enable SSL
+
+```nginx
+
+upstream backend {
+        server 10.244.0.242:3000;  # First backend server
+        server 10.244.0.242:3001;  # Second backend server
+    }
+server {
+    listen 443 ssl;
+    server_name example.com;
+
+    ssl_certificate /etc/nginx/ssl/example.com.crt;   # Path to your SSL certificate
+    ssl_certificate_key /etc/nginx/ssl/example.com.key;  # Path to your SSL key
+
+    location / {
+        proxy_pass http://backend;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+server {
+    listen 80;
+    server_name example.com;
+    return 301 https://$host$request_uri;  # Redirect HTTP to HTTPS
+}
+
+```
+
