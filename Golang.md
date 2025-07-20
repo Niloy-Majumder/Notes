@@ -553,3 +553,44 @@ func main() {
 - Pointer receivers receive a reference to the struct.
 - Go automatically de-references the pointer when you access fields or methods on structs.
 
+## Interfaces
+
+ An interface is a type that defines a set of method signatures (a contract), but does not implement them. If a type implements all the methods declared in an interface, it is said to satisfy that interface — implicitly.
+
+```go
+package main
+
+import "fmt"
+
+// Interface
+type Speaker interface {
+    Speak() string
+}
+
+// Structs
+type Dog struct{}
+type Human struct{}
+
+// Methods
+func (d Dog) Speak() string {
+    return "Woof!"
+}
+
+func (h Human) Speak() string {
+    return "Hello!"
+}
+
+// Function using interface
+func SaySomething(s Speaker) {
+    fmt.Println(s.Speak())
+}
+
+func main() {
+    SaySomething(Dog{})    // Woof!
+    SaySomething(Human{})  // Hello!
+}
+
+```
+
+**Empty interface** `interface{}` Can hold any value (like `Object` in other languages). Useful for generic-like behavior.
+

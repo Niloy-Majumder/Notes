@@ -1,4 +1,4 @@
-## Make Request With Go
+## Make Request With [[Golang]]
 
 To Do Operations with URL we use `net/url` module
 ### GET : 
